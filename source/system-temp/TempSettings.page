@@ -50,7 +50,7 @@ function save_modules($modules) {
 }
 function normalize_chip($chip) {
   // Replace USB HID device identifiers with wildcards (e.g., corsairpsu-hid-3-1 -> corsairpsu-*)
-  return preg_replace('/-hid-\d+-\d+$/', '-*', $chip);
+  return preg_replace('/-hid-\d+-\d+$/i', '-*', $chip);
 }
 function is_module_loaded($module) {
   return exec("lsmod|grep -cm1 '^$module'")>0;
